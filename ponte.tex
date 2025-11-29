@@ -1,0 +1,65 @@
+\begin{tikzpicture}[scale=0.9]
+\draw (-3,-2) to[battery] (-3, 2);
+
+\draw (-3, 2) -- (0, 2); %to top
+\draw (-3, -2) -- (0, -2);%to bot
+
+\draw (0, 2) -- (0, 1.5);
+\draw (0, -2) -- (0, -1.5);
+
+\draw (0, 1.5) to[R=$R_1$] (-2, 0);
+\draw (0, -1.5) to[R=$R_3$] (-2, 0);
+
+\draw (0, 1.5) to[R=$R_2$] (2, 0);
+
+\draw (0, -1.5) -- (3,-1.5);
+\draw (0,0) node[draw, circle, minimum size=0.5cm] (v) {$V$};
+\draw (-2, 0) -- (-0.4,0);
+\draw (0.4, 0) -- (1,0);
+\draw (1, 0) -- (1, -0.8);
+
+\draw (2,0) -- (3,0);
+\draw (3, 0) to[R=$R_{w,1}$] (4,0);
+\draw (1, -0.8) -- (3, -0.8);
+\draw (3, -0.8) to[R=$R_{w,2}$] (4,-0.8);
+
+\draw (4, -0.8) -- (4.2, -0.8);
+\draw (4, 0) -- (4.2, 0);
+\draw (4.2, 0) -- (4.2, -0.8);
+
+\draw (3, -1.5) to[R=$R_{w,3}$] (4, -1.5);
+\draw (4, -1.5) -- (5.2, -1.5);
+
+\draw (4.2, -0.4) -- (5.2, -0.4);
+
+\draw (5.2, -0.4) -- (5.4, -0.4);
+\draw (5.2, -1.5) -- (5.4, -1.5);
+
+\fill (5.2,-0.4) circle (3pt);
+\fill (5.2,-1.5) circle (3pt);
+
+\draw (5.4, -0.4) -- (7, -0.4);
+\draw[ultra thick] (7, -0.4) -- (7, -0.6);
+\draw (7, -0.6) -- (5.4, -0.6);
+\draw[ultra thick] (5.4, -0.6) -- (5.4, -0.8);
+\draw (5.4, -0.8) -- (7, -0.8);
+\draw[ultra thick] (7, -0.8) -- (7, -1);
+\draw (7, -1) -- (5.4, -1);
+\draw[ultra thick] (5.4, -1) -- (5.4, -1.3);
+\draw (5.4, -1.3) -- (7, -1.3);
+\draw[ultra thick] (7, -1.3) -- (7, -1.5);
+\draw (7, -1.5) -- (5.4, -1.5);
+
+%boxes
+\draw[color=red] (-3.5, 3) rectangle (2.7, 0-3);
+\draw [ color=red](-0.75,3.3) to[short] (-0.75,3.3) node {Scheda acquisizione};
+
+\draw[color=blue] (2.9, 1.2) rectangle (4.6, -2.5);
+\draw [ color=blue](3.75, 1.4) to[short] (3.75, 1.4) node {Fili};
+
+\draw[color=purple] (4.9, 0.1) rectangle (7.3, -2);
+\draw [color=purple](6.1, 0.3) to[short] (6.1, 0.4) node {Estensimetro};
+
+\end{tikzpicture}
+\caption{Schema del ponte di Wheatstone con estensimetro a 3 fili}
+\label{fig:schema_wheatstone}
