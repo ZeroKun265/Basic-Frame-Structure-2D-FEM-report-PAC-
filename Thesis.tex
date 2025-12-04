@@ -159,9 +159,46 @@
 
 \chapter{Modellazione con elementi truss}
 \label{ch:mod_truss}%
+Studiamo la struttura con elementi lineari truss: due nodi e forze solo assiali
 
 \section{Trattazione analitica}
 \label{s:truss_analog}%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Images/schema amalitico.png}
+    \caption{Esploso analitico con elementi truss, forze puramente assiali}
+    \label{fig:esploso_an}
+\end{figure}
+
+Usiamo una formulazione analitica, quindi dato lo schema delle forze nell'esploso in figura \ref{fig:esploso_an} possiamo ricavarci la matrice in figura \ref{fig:matr} del bilancio delle forze ai nodi, dalla quale ricaviamo le nostre forze interne e forze vincolari:
+
+$$F_1 = -428\space N \quad F_2 = 428 \space N\quad F_3 = -428 \space N \quad F_4 = 428 \space N \quad F_5 = 428 \space N$$
+$$F_6 = -856 \space N\quad F_7 = 0 \space N\quad R_{1x} = -428\sqrt3\space N \quad R_{1y} = -428 \space N\quad R_{2x} = -428\sqrt3 \space N$$
+
+\begin{figure}[H]
+    \centering
+    \begin{gather*}
+    \left\{
+        \begin{array}{@{}c r r r r r r r r r r @{=} c}
+P & & & & & & & & & & &428\\
+P &+\frac{1}2 F_1 & -\frac12F_2 & & & & & & & & & 0\\
+& +\frac{\sqrt3}{2}F_1 & +\frac{\sqrt 3}{2}F_2 & & & & & & & & & 0\\
+& & +\frac{1}{2}F_2 & +F_3 & + \frac{1}{2}F_4& & & & & & & 0\\
+& & +\frac{\sqrt{3}}{2}F_2 & & -\frac{\sqrt{3}}{2}F_4& & & & & & & 0\\
+& +\frac{1}{2}F_1 & & +F_3 & & +\frac{1}{2}F_5 & -\frac{1}{2}F_6& & & & & 0\\
+& \frac{\sqrt{3}}{2}F_1 & & & &-\frac{\sqrt{3}}{2}F_5 & -\frac{\sqrt{3}}{2}F_6& & & & & 0\\
+& & & & & & \frac{\sqrt{3}}{2}F_6 & & +R_{1x}& & & 0\\
+& & & & \frac{\sqrt{3}}{2}F_4 & + \frac{\sqrt{3}}{2}F_5 & & & & & +R_{2x} & 0\\
+& & & & \frac{1}{2} F_4 & -\frac{1}{2}F_5 & & -F_7 & & & & 0\\
+& & & & & & +\frac{1}{2}F_6 & +F_7 & & -R_{1y} & & 0
+\end{array}
+    \right.
+    \end{gather*}
+    \caption{Matrice del bilancio delle forze per il caso con forze solo assiali}
+    \label{fig:matr}
+\end{figure}
+
+
 
 \section{Simulazione ad elementi finiti}
 \label{s:truss_sim}%
